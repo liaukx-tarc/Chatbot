@@ -5,12 +5,12 @@ import pickle
 import numpy as np
 
 from keras.models import load_model
-model = load_model('chatbot_model.h5')
+model = load_model('purchase_chatbot_model.h5')
 import json
 import random
-intents = json.loads(open('intents.json').read())
-words = pickle.load(open('words.pkl','rb'))
-classes = pickle.load(open('classes.pkl','rb'))
+intents = json.loads(open('purchase_intents.json').read())
+words = pickle.load(open('purchase_words.pkl','rb'))
+classes = pickle.load(open('purchase_classes.pkl','rb'))
 
 def clean_up_sentence(sentence):
     # tokenize the pattern - split words into array
