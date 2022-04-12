@@ -38,13 +38,16 @@ def predict_class(sentence, model):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
     res = model.predict(np.array([p]))[0]
-    ERROR_THRESHOLD = 0.25
+    ERROR_THRESHOLD = 0.5
     results = [[i,r] for i,r in enumerate(res) if r>ERROR_THRESHOLD]
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
-    for r in results:
-        return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+    if len(results) != 0 :
+        for r in results:
+            return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+    else :
+        return_list.append({"intent": "noanswer"})
     return return_list
 
 def getResponse(ints, intents_json):
@@ -58,6 +61,7 @@ def getResponse(ints, intents_json):
 
 def chatbot_response(text):
     ints = predict_class(text, model)
+    print ("".join(str(p) for p in ints) )
     res = getResponse(ints, intents)
     return res
 
