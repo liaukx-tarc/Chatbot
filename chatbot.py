@@ -15,6 +15,12 @@ order_intents = json.loads(open('Food Order/order_intents.json').read())
 order_words = pickle.load(open('Food Order/order_words.pkl', 'rb'))
 order_classes = pickle.load(open('Food Order/order_classes.pkl', 'rb'))
 
+# customer service
+cust_model = load_model("Customer Service/customer_service_chatbot_model.h5")
+cust_intents = json.loads(open('Customer Service/customer_service_intents.json').read())
+cust_words = pickle.load(open('Customer Service/customer_service_words.pkl', 'rb'))
+cust_classes = pickle.load(open('Customer Service/customer_service_classes.pkl', 'rb'))
+
 # example
 example_model = load_model('Example/example_chatbot_model.h5')
 example_intents = json.loads(open('Example/example_intents.json').read())
@@ -135,21 +141,21 @@ def getResponse(predict_result, intents_json):
                         classes = example_classes
 
                     elif tag == '2':
-                        model = example_model
-                        intents = example_intents
-                        words = example_words
-                        classes = example_classes
-
-                    else:
-                        model = order_model
+                         model = order_model
                         intents = order_intents
                         words = order_words
                         classes = order_classes
 
+                    else:
+                        model = cust_model
+                        intents = cust_intents
+                        words = cust_words
+                        classes = cust_classes
+
                     isChooseFunc = False
                     break
         else:
-            result = "Bot: Please answer my question first. Thanks\n\n" + "Bot: " + previousResp
+            result = "Bot: Please select an option to proceed.\n\n" + "Bot: " + previousResp
 
     else:
         for i in list_of_intents:
@@ -243,7 +249,7 @@ def main():
     isChooseFunc = True
     ChatLog.config(state=NORMAL)
     ChatLog.config(foreground="#442265", font=("Verdana", 12))
-    startQues = "Bot: Please Choose the Function you want\n\n" + "\t 1. Customer Service\n\n" + "\t 2. Food Menu\n\n" + "\t 3. Food Order\n\n"
+    startQues = "Bot: Please Choose the Function you want\n\n" + "\t 1. Food Menu\n\n" + "\t 2. Food Order\n\n" + "\t 3. Customer Service\n\n"
     ChatLog.insert(END, startQues)
     previousResp = startQues
     ChatLog.config(state=DISABLED)
