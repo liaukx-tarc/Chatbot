@@ -11,7 +11,7 @@ from keras.models import load_model
 import json
 import random
 
-#menu
+# menu
 menu_model = load_model("Menu/menu_chatbot_model.h5")
 menu_intents = json.loads(open('Menu/menu_intents.json').read())
 menu_words = pickle.load(open('Menu/menu_words.pkl', 'rb'))

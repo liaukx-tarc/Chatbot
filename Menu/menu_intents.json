@@ -51,12 +51,16 @@
         },
         {"tag": "order",
          "patterns": ["I want to order", "Go to order", "Order now", "2", "two", "dua"],
-         "responses": ["Hi, I am food order chatbot"],
+         "responses": ["Hi, I am food order chatbot. What can I do for you?"],
          "context": [""]
         },
         {"tag": "customer service",
          "patterns": ["may I have customer service?", "may I ask?", "I have question", "customer service", "3", "three", "tiga"],
-         "responses": ["Hi, I am customer service chatbot"]
+         "responses": ["Hi, I am customer service chatbot. What can I do for you?"]
+        },
+        {"tag": "foodmenu",
+         "patterns": ["Can I have the menu?", "Menu please?", "Show me the menu"],
+         "responses": ["1. Chicken Rice - RM5.50\n2. Fried Rice - RM5.00\n3. Nasi Lemak - RM4.00\n4. Fish Porridge - RM5.00\n5. Laksa - RM6.00\n6. Fried Noodle - RM5.00\n7. Noodle Soup - RM5.00\n8. Teh Tarik - RM2.00\n9. Coffee - RM2.00\n10. Milo - RM2.50"]
         }
-]
+  ]
 }
