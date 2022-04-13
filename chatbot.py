@@ -9,6 +9,12 @@ from keras.models import load_model
 import json
 import random
 
+#menu
+menu_model = load_model("Menu/menu_chatbot_model.h5")
+menu_intents = json.loads(open('Menu/menu_intents.json').read())
+menu_words = pickle.load(open('Menu/menu_words.pkl', 'rb'))
+menu_classes = pickle.load(open('Menu/menu_classes.pkl', 'rb'))
+
 # order
 order_model = load_model("Food Order/order_chatbot_model.h5")
 order_intents = json.loads(open('Food Order/order_intents.json').read())
@@ -22,10 +28,10 @@ cust_words = pickle.load(open('Customer Service/customer_service_words.pkl', 'rb
 cust_classes = pickle.load(open('Customer Service/customer_service_classes.pkl', 'rb'))
 
 # example
-example_model = load_model('Example/example_chatbot_model.h5')
-example_intents = json.loads(open('Example/example_intents.json').read())
-example_words = pickle.load(open('Example/example_words.pkl', 'rb'))
-example_classes = pickle.load(open('Example/example_classes.pkl', 'rb'))
+example_model = load_model('Inti/example_chatbot_model.h5')
+example_intents = json.loads(open('Inti/example_intents.json').read())
+example_words = pickle.load(open('Inti/example_words.pkl', 'rb'))
+example_classes = pickle.load(open('Inti/example_classes.pkl', 'rb'))
 
 # inti
 model = example_model
@@ -36,6 +42,7 @@ isChooseFunc = False
 isConfirm = False
 previousResp = None
 foodOrdering = None
+currentModel = 0
 foodCart = []
 
 
@@ -111,6 +118,7 @@ def getResponse(predict_result, intents_json):
     global intents
     global words
     global classes
+    global currentModel
 
     if isConfirm:
         if tag == "confirm":
@@ -135,22 +143,25 @@ def getResponse(predict_result, intents_json):
                     result = random.choice(i['responses'])
 
                     if tag == '1':
-                        model = example_model
-                        intents = example_intents
-                        words = example_words
-                        classes = example_classes
+                        model = menu_model
+                        intents = menu_intents
+                        words = menu_words
+                        classes = menu_classes
+                        currentModel = 1
 
                     elif tag == '2':
-                         model = order_model
+                        model = order_model
                         intents = order_intents
                         words = order_words
                         classes = order_classes
+                        currentModel = 2
 
                     else:
                         model = cust_model
                         intents = cust_intents
                         words = cust_words
                         classes = cust_classes
+                        currentModel = 3
 
                     isChooseFunc = False
                     break
@@ -164,25 +175,48 @@ def getResponse(predict_result, intents_json):
                 # random choose a responses
                 result = random.choice(i['responses'])
 
-        if tag == "chicken rice" or tag == "fried rice" or tag == "nasi lemak" or tag == "fish porridge" or tag == "laksa" or tag == "fried noodle" or tag == "noodle soup" or tag == "teh tarik" or tag == "coffee" or tag == "milo":
-            print(tag)
-            isConfirm = True
-            foodOrdering = tag
+        if tag == "menu" or tag == "order" or tag == "customer service":
+            if tag == 'menu':
+                model = menu_model
+                intents = menu_intents
+                words = menu_words
+                classes = menu_classes
+                currentModel = 1
 
-        elif tag == "food cart":
-            i = 0
-            for f in foodCart:
-                result += '\n\n' + str(i + 1) + ". " + f
-                if i != len(foodCart) - 1:
-                    result += '\n'
-                i += 1
+            elif tag == 'order':
+                model = order_model
+                intents = order_intents
+                words = order_words
+                classes = order_classes
+                currentModel = 2
 
-        elif tag == "confirm" or tag == "cancel":
-            result = "Not thing to confirm."
+            elif tag == 'customer service':
+                model = cust_model
+                intents = cust_intents
+                words = cust_words
+                classes = cust_classes
+                currentModel = 3
+
+        if currentModel == 2 or currentModel == 3:
+            if tag == "food cart":
+                i = 0
+                for f in foodCart:
+                    result += '\n\n' + str(i + 1) + ". " + f
+                    if i != len(foodCart) - 1:
+                        result += '\n'
+                    i += 1
+
+            if currentModel == 2:
+                if tag == "chicken rice" or tag == "fried rice" or tag == "nasi lemak" or tag == "fish porridge" or tag == "laksa" or tag == "fried noodle" or tag == "noodle soup" or tag == "teh tarik" or tag == "coffee" or tag == "milo":
+                    print(tag)
+                    isConfirm = True
+                    foodOrdering = tag
+
+                elif tag == "confirm" or tag == "cancel":
+                    result = "Not thing to confirm."
 
     previousResp = result
     return result
-
 
 def chatbot_response(text):
     # predict the result
@@ -242,7 +276,6 @@ ChatLog.place(x=6, y=6, height=386, width=370)
 EntryBox.place(x=128, y=401, height=90, width=265)
 SendButton.place(x=6, y=401, height=90)
 
-
 def main():
     global isChooseFunc
     global previousResp
@@ -254,7 +287,6 @@ def main():
     previousResp = startQues
     ChatLog.config(state=DISABLED)
     ChatLog.yview(END)
-
 
 if __name__ == "__main__":
     main()

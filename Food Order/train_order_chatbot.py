@@ -145,10 +145,13 @@ model.save('order_chatbot_model.h5', hist)
 # plot the graph
 plt.plot(hist.history['loss'])
 plt.plot(hist.history['val_loss'])
-plt.title('Model Loss')
-plt.ylabel('Loss')
+plt.plot(hist.history['accuracy'])
+plt.plot(hist.history['val_accuracy'])
+plt.title('Model Loss & Accuracy')
+plt.ylabel('Loss & Accuracy')
 plt.xlabel('Epochs')
-plt.legend(['loss', 'val loss'])
+plt.legend(['loss', 'val loss', 'accuracy', 'val_accuracy'])
 plt.show()
+
 
 print("model created")

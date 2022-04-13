@@ -1,6 +1,6 @@
 {"intents": [
         {"tag": "noanswer",
-         "patterns": [" "],
+         "patterns": [],
          "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"]
         },
         {"tag": "confirm",
@@ -70,6 +70,14 @@
         {"tag": "food cart",
          "patterns": ["my food cart", "may I see cart?", "what I have order?", "food cart"],
          "responses": ["This is your food cart:", "You have order: ", "Food cart have: "]
+        },
+        {"tag": "menu",
+         "patterns": ["may I see the menu", "menu?", "what is the menu?", "1", "one", "satu"],
+         "responses": ["Hi, I am food menu chatbot"]
+        },
+        {"tag": "customer service",
+         "patterns": ["may I have customer service?", "may I ask?", "I have question", "customer service", "3", "three", "tiga"],
+         "responses": ["Hi, I am customer service chatbot"]
         }
 ]
 }
