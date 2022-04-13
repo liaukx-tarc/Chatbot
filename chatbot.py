@@ -86,12 +86,10 @@ def predict_class(sentence, model):
     p = bow(sentence, words, show_details=False)
     # start to predict
     res = model.predict(np.array([p]))[0]
-
-    # set the error probability
+    # set the error probabilitys
     error_probability = 0.5
     # if the predict probability too low ignore it
     results = [[i, r] for i, r in enumerate(res) if r > error_probability]
-
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
 

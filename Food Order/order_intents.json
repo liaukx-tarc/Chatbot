@@ -4,7 +4,7 @@
          "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"]
         },
         {"tag": "confirm",
-         "patterns": ["yes", "please order", "ya"],
+         "patterns": ["yes", "please order", "ya", "ok", "okay"],
          "responses": ["I already place the order", "Your food has been order"]
         },
         {"tag": "cancel",
@@ -12,7 +12,7 @@
          "responses": ["I no place the order", "I have stop the order", "ok, I will not order"]
         },
         {"tag": "greeting",
-         "patterns": ["hi there", "how are you", "hs anyone there?","hey","hola", "hello", "hood day"],
+         "patterns": ["hi there", "how are you", "is anyone there?","hey","hola", "hello", "good day"],
          "responses": ["Hi, what you want to order?", "Hello, you can order now"]
         },
         {"tag": "intro",
