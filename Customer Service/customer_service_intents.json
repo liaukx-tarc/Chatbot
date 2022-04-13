@@ -1,23 +1,87 @@
 {"intents": [
         {"tag": "noanswer",
          "patterns": [],
-         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"]
+         "responses": ["Sorry, I can't understand, can you repeat your question?", "Please provide more information, thanks."]
         },
         {"tag": "greeting",
-         "patterns": ["hi there", "how are you", "hs anyone there?","hey","hola", "hello", "hood day"],
-         "responses": ["Hi, what you want to order?", "Hello, you can order now"]
+         "patterns": ["hi there", "is anyone here?", "hey", "hello", "yo","good morning", "good afternoon"],
+         "responses": ["Hi, what can I help you?"]
         },
-        {"tag": "intro",
-         "patterns": ["who are you?", "what can you do?", "what are you doing?", "You are bot?"],
-         "responses": ["I am the chatbot" ]
+		{"tag": "intro",
+         "patterns": ["How you could help me?", "What help you provide?", "How you can be helpful?", "What support is offered", "who are you?", "what can you do?", "what are you doing?", "are you bot?"],
+         "responses": ["I am the customer support bot, what can I help you?" ]
+        },
+		{"tag": "detail",
+         "patterns": ["restaurant detail", "Can you introduce your restaurant?", "restaurant description", "introduction"],
+         "responses": ["Uncle Kai Xian Restaurant\nYumYum Cafeteria,Block L, Tunku Abdul Rahman University College, Jalan Genting Kelang, 53100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur\n10am - 5pm everyday\n018-8888888\n"]
+        },
+		{"tag": "food cart",
+         "patterns": ["what have I ordered?", "list order item please", "can you show my order?", "my food cart", "may I see the food cart?"],
+         "responses": ["This is your order:", "You have ordered: ", "Your food cart have: "]
+        },
+		{"tag": "address",
+         "patterns": ["where is the restaurant?", "restaurant location", "where can i find this restaurant?", "where can i get the food?", "where can i pick up my food?", "self pickup"],
+         "responses": ["YumYum Cafeteria, Block L, Tunku Abdul Rahman University College, Jalan Genting Kelang, 53100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur"]
+        },
+		{"tag": "telnum",
+         "patterns": ["how can i contact you?", "telephone number", "phone call", "phone number"],
+         "responses": ["Call 018-8888888."]
+        },
+		{"tag": "operatingtimes",
+         "patterns": ["operating times","what time operate", "operating hours", "open until when?", "opening times", "opening hours", "closing hours", "closing times", "when closing", "when opening"],
+         "responses": ["10am - 5pm everyday"]
+        },
+		{"tag": "dish",
+         "patterns": ["What dish do you offer?", "What food you have?", "Any good food?", "available food", "food offer", "What are you selling?"],
+         "responses": ["We have chicken rice, fried rice, nasi lemak, fish porridge, laksa, fried noodle, and noodle soup." ]
+        },
+		{"tag": "drink",
+         "patterns": ["Any drinks?", "beverages", "Do you have beverages?", "what drink you provide?"],
+         "responses": ["We offer teh tarik, coffee, and milo."]
+        },
+        {"tag": "discount",
+         "patterns": ["Can you make discount?", "food discount", "promotion", "deal"],
+         "responses": ["There is no discount now, sorry.", "Currently no promotion available, sorry."]
+        },
+		{"tag": "delivery",
+         "patterns": ["Can you deliver the food?", "food delivery", "how can i order for food delivery?", "home delivery"],
+         "responses": ["Please order on Food Panda or Grab Food for food delivery, thank you."]
+        },
+		{"tag": "menu",
+         "patterns": ["Can I see the menu?", "Menu please?", "Show me the menu", "menu?", "what is the menu?", "1", "one", "satu"],
+         "responses": ["Hi, I am food menu chatbot."]
+        },
+		{"tag": "order",
+         "patterns": ["I want to order", "Go to order", "Order now", "2", "two", "dua"],
+         "responses": ["Hi, I am food order chatbot."]
+        },
+		{"tag": "feedback",
+         "patterns": ["feedback", "I have a feedback", "leave a opinion"],
+         "responses": ["Please call 018-8888888 for feedback, thank you."]
+        },
+		{"tag": "suggestfood",
+         "patterns": ["any suggestion?", "what food you prefer?", "chef recommendation", "dish of the day", "today special", "what food tasty?", "which dish is the best?", "what is your best dish?", "any good food?"],
+         "responses": ["You can try Uncle Kai Xian's selection, Yang Zhou Fried Rice.","Nasi lemak is delicious, you should try it.", "I would recommend laksa - best laksa around this area."]
+        },
+		{"tag": "goodreview",
+         "patterns": ["Your food is good", "most delicious food I ever had", "very tasty", " nice good" , "best food i ever had"],
+         "responses": ["Thank for your review, good to hear that.", "Glad that you like our food!"]
+        },
+		{"tag": "badreview",
+         "patterns": ["Your food is bad", "most disgusting food I ever had", "taste bad", " worst food" , "food is not good", "tasteless"],
+         "responses": ["Sorry to hear that, we will try to make our food better.", "I'm so sorry. We will improve our food quality next time."]
         },
         {"tag": "goodbye",
          "patterns": ["bye", "see you later", "goodbye", "nice chatting to you, bye", "till next time"],
-         "responses": ["See you!", "Good bye!", "Bye, come back agian soon!"]
+         "responses": ["See you!", "Bye, have a nice day!", "Bye! Come back again soon."]
         },
         {"tag": "thanks",
          "patterns": ["thanks", "thank you", "that's helpful", "awesome, thanks", "thanks for helping me"],
-         "responses": ["You are welcome!", "My pleasure", "That's my duty"]
+         "responses": ["You are welcome!", "My pleasure.", "That's my duty."]
+        },
+        {"tag": "okreply",
+         "patterns": ["ok", "no problem", "Okay", "Okie"],
+         "responses": ["Anything elses I can help you?", "Any other problems?"]
         },
         {"tag": "1",
          "patterns": ["1", "one", "satu"],
