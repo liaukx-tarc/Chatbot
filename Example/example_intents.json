@@ -1,0 +1,35 @@
+{"intents": [
+        {"tag": "noanswer",
+         "patterns": [" "],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"]
+        },
+        {"tag": "greeting",
+         "patterns": ["hi there", "how are you", "hs anyone there?","hey","hola", "hello", "hood day"],
+         "responses": ["Hi, what you want to order?", "Hello, you can order now"]
+        },
+        {"tag": "intro",
+         "patterns": ["who are you?", "what can you do?", "what are you doing?", "You are bot?"],
+         "responses": ["I am the chatbot" ]
+        },
+        {"tag": "goodbye",
+         "patterns": ["bye", "see you later", "goodbye", "nice chatting to you, bye", "till next time"],
+         "responses": ["See you!", "Good bye!", "Bye, come back agian soon!"]
+        },
+        {"tag": "thanks",
+         "patterns": ["thanks", "thank you", "that's helpful", "awesome, thanks", "thanks for helping me"],
+         "responses": ["You are welcome!", "My pleasure", "That's my duty"]
+        },
+        {"tag": "1",
+         "patterns": ["1", "one", "satu"],
+         "responses": ["Hi, I am Customer Service Chatbot"]
+        },
+        {"tag": "2",
+         "patterns": ["2", "two", "dua"],
+         "responses": ["Hi, I am Food Menu Chatbot"]
+        },
+        {"tag": "3",
+         "patterns": ["3", "three", "tiga"],
+         "responses": ["Hi, I am Food Order Chatbot"]
+        }
+]
+}
