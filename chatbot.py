@@ -48,6 +48,7 @@ currentModel = 0
 startTime = None
 endTime = None
 foodCart = []
+isQuit = False
 
 
 # preprocess the input
@@ -120,10 +121,12 @@ def getResponse(predict_result, intents_json):
     global words
     global classes
     global currentModel
+    global isQuit
 
     if isConfirm:
-        if tag == "confirm":
-            foodCart.append(foodOrdering)
+        if tag == "confirm" or tag == "cancel":
+            if tag == "confirm":
+                foodCart.append(foodOrdering)
 
             for i in list_of_intents:
                 # compare the tag with the json intent file
@@ -133,7 +136,7 @@ def getResponse(predict_result, intents_json):
                     isConfirm = False
                     break
         else:
-            result = "Bot: Please answer my question first. Thanks\n\n" + "Bot: " + previousResp + "\n\n"
+            result = "Bot: Please answer my question first. Thanks\n\n" + "[" + time.ctime(time.time()) + "] Bot: " + previousResp + "\n\n"
 
     elif isChooseFunc:
         if tag == "1" or tag == "2" or tag == "3":
@@ -167,7 +170,7 @@ def getResponse(predict_result, intents_json):
                     isChooseFunc = False
                     break
         else:
-            result = "Bot: Please select an option to proceed.\n\n" + "Bot: " + previousResp
+            result = "Please select an option to proceed.\n\n" + "[" + time.ctime(time.time()) + "] Bot: " + previousResp
 
     else:
         for i in list_of_intents:
@@ -175,6 +178,9 @@ def getResponse(predict_result, intents_json):
             if (i['tag'] == tag):
                 # random choose a responses
                 result = random.choice(i['responses'])
+
+        if tag == "goodbye":
+            isQuit = True
 
         if tag == "menu" or tag == "order" or tag == "customer service":
             if tag == 'menu':
@@ -201,8 +207,9 @@ def getResponse(predict_result, intents_json):
         if currentModel == 2 or currentModel == 3:
             if tag == "food cart":
                 i = 0
+                result += '\n'
                 for f in foodCart:
-                    result += '\n\n' + str(i + 1) + ". " + f
+                    result += '\n\t\t\t\t' + str(i + 1) + ". " + f
                     if i != len(foodCart) - 1:
                         result += '\n'
                     i += 1
@@ -251,6 +258,9 @@ def send():
         ChatLog.config(state=DISABLED)
         ChatLog.yview(END)
         print((endTime - startTime) * 1000, "ms\n")
+        if isQuit:
+            time.sleep(3)
+            quit()
 
 
 base = Tk()
@@ -288,11 +298,13 @@ def main():
     isChooseFunc = True
     ChatLog.config(state=NORMAL)
     ChatLog.config(foreground="#442265", font=("Verdana", 12))
-    startQues = "[" + time.ctime(time.time()) + "] Bot: Please Choose the Function you want\n\n" + "\t 1. Food Menu\n\n" + "\t 2. Food Order\n\n" + "\t 3. Customer Service\n\n"
+    startQues = "[" + time.ctime(time.time()) + "] Bot: Please Choose the Function you want\n\n" + "\t\t\t\t 1. Food Menu\n\n" + "\t\t\t\t 2. Food Order\n\n" + "\t\t\t\t 3. Customer Service\n\n"
     ChatLog.insert(END, startQues)
     previousResp = startQues
     ChatLog.config(state=DISABLED)
     ChatLog.yview(END)
+
+
 
 if __name__ == "__main__":
     main()
