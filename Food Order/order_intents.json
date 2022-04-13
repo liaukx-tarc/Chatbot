@@ -78,6 +78,10 @@
         {"tag": "customer service",
          "patterns": ["may I have customer service?", "may I ask?", "I have question", "customer service", "3", "three", "tiga"],
          "responses": ["Hi, I am customer service chatbot. What can I help you?"]
+        },
+        {"tag": "payment",
+         "patterns": ["I want to pay", "make payment", "complete order"],
+         "responses": ["After order, pay at the counter", "Pay at the counter"]
         }
 ]
 }
