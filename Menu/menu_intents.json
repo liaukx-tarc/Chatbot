@@ -50,9 +50,13 @@
          "context": [""]
         },
         {"tag": "order",
-         "patterns": ["I want to order", "Go to order", "Order now"],
-         "responses": ["Are you sure you want to go to order?", "Go to order?"],
+         "patterns": ["I want to order", "Go to order", "Order now", "2", "two", "dua"],
+         "responses": ["Hi, I am food order chatbot"],
          "context": [""]
+        },
+        {"tag": "customer service",
+         "patterns": ["may I have customer service?", "may I ask?", "I have question", "customer service", "3", "three", "tiga"],
+         "responses": ["Hi, I am customer service chatbot"]
         }
 ]
 }
