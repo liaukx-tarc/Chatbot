@@ -1,0 +1,75 @@
+{"intents": [
+        {"tag": "noanswer",
+         "patterns": [" "],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"]
+        },
+        {"tag": "confirm",
+         "patterns": ["yes", "please order", "ya"],
+         "responses": ["I already place the order", "Your food has been order"]
+        },
+        {"tag": "cancel",
+         "patterns": ["no", "stop", "not order", "dont order", "don't"],
+         "responses": ["I no place the order", "I have stop the order", "ok, I will not order"]
+        },
+        {"tag": "greeting",
+         "patterns": ["hi there", "how are you", "hs anyone there?","hey","hola", "hello", "hood day"],
+         "responses": ["Hi, what you want to order?", "Hello, you can order now"]
+        },
+        {"tag": "intro",
+         "patterns": ["who are you?", "what can you do?", "what are you doing?", "You are bot?"],
+         "responses": ["I am the food order chatbot, can help you place order" ]
+        },
+        {"tag": "goodbye",
+         "patterns": ["bye", "see you later", "goodbye", "nice chatting to you, bye", "till next time"],
+         "responses": ["See you!", "Good bye!", "Bye, come back agian soon!"]
+        },
+        {"tag": "thanks",
+         "patterns": ["thanks", "thank you", "that's helpful", "awesome, thanks", "thanks for helping me"],
+         "responses": ["You are welcome!", "My pleasure", "That's my duty"]
+        },
+        {"tag": "chicken rice",
+         "patterns": ["I want order chicken rice", "I want chicken rice", "have chicken rice?", "chicken rice please", "order chicken rice"],
+         "responses": ["You want chicken rice right?", "May I confirm, is that chicken rice?", "Order chicken rice now?"]
+        },
+        {"tag": "fried rice",
+         "patterns": ["I want order fried rice", "I want fried rice", "have fried rice?", "fried rice please", "order fried rice"],
+         "responses": ["You want fried rice right?", "May I confirm, is that fried rice?", "Order fried rice now?"]
+        },
+        {"tag": "nasi lemak",
+         "patterns": ["I want order nasi lemak", "I want nasi lemak", "have nasi lemak?", "nasi lemak please", "order nasi lemak"],
+         "responses": ["You want nasi lemak right?", "May I confirm, is that nasi lemak?", "Order nasi lemak now?"]
+        },
+        {"tag": "fish porridge",
+         "patterns": ["I want order fish porridge" ,"I want fish porridge", "have fish porridge?", "fish porridge please", "order fish porridge"],
+         "responses": ["You want fish porridge right?", "May I confirm, is that fish porridge?", "Order fish porridge now?"]
+        },
+        {"tag": "laksa",
+         "patterns": ["I want order laksa", "I want laksa", "have laksa?", "laksa please", "order laksa"],
+         "responses": ["You want laksa right?", "May I confirm, is that laksa?", "Order laksa now?"]
+        },
+        {"tag": "fried noodle",
+         "patterns": ["I want order fried noodle", "I want fried noodle", "have fried noodle?", "please fried noodle", "order fried noodle"],
+         "responses": ["You want fried noodle right?", "May I confirm, is that fried noodle?", "Order fried noodle now?"]
+        },
+        {"tag": "noodle soup",
+         "patterns": ["I want order noodle soup", "I want noodle soup", "have noodle soup?", "noodle soup please", "order noodle soup"],
+         "responses": ["You want noodle soup right?", "May I confirm, is that noodle soup?", "Order noodle soup now?"]
+        },
+        {"tag": "teh tarik",
+         "patterns": ["I want order teh tarik", "I want teh tarik", "have teh tarik?", "teh tarik please", "order teh tarik"],
+         "responses": ["You want teh tarik right?", "May I confirm, is that teh tarik?", "Order teh tarik now?"]
+        },
+        {"tag": "coffee",
+         "patterns": ["I want order coffee", "I want coffee", "have coffee?", "coffee please", "order coffee"],
+         "responses": ["You want coffee right?", "May I confirm, is that coffee?", "Order coffee now?"]
+        },
+        {"tag": "milo",
+         "patterns": ["I want order milo", "I want milo", "have milo?", "milo please", "order milo"],
+         "responses": ["You want milo right?", "May I confirm, is that milo?", "Order milo now?"]
+        },
+        {"tag": "food cart",
+         "patterns": ["my food cart", "may I see cart?", "what I have order?", "food cart"],
+         "responses": ["This is your food cart:", "You have order: ", "Food cart have: "]
+        }
+]
+}
