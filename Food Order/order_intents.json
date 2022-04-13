@@ -73,11 +73,11 @@
         },
         {"tag": "menu",
          "patterns": ["may I see the menu", "menu?", "what is the menu?", "1", "one", "satu"],
-         "responses": ["Hi, I am food menu chatbot"]
+         "responses": ["Hi, I am food menu chatbot. What can I help you?"]
         },
         {"tag": "customer service",
          "patterns": ["may I have customer service?", "may I ask?", "I have question", "customer service", "3", "three", "tiga"],
-         "responses": ["Hi, I am customer service chatbot"]
+         "responses": ["Hi, I am customer service chatbot. What can I help you?"]
         }
 ]
 }

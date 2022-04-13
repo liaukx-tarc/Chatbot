@@ -85,15 +85,15 @@
         },
         {"tag": "1",
          "patterns": ["1", "one", "satu"],
-         "responses": ["Hi, I am Customer Service Chatbot"]
+         "responses": ["Hi, I am Customer Service Chatbot. What can I help you?"]
         },
         {"tag": "2",
          "patterns": ["2", "two", "dua"],
-         "responses": ["Hi, I am Food Menu Chatbot"]
+         "responses": ["Hi, I am Food Menu Chatbot. What can I help you?"]
         },
         {"tag": "3",
          "patterns": ["3", "three", "tiga"],
-         "responses": ["Hi, I am Food Order Chatbot"]
+         "responses": ["Hi, I am Food Order Chatbot. What can I help you?"]
         }
 ]
 }
