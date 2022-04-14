@@ -30,10 +30,10 @@ cust_words = pickle.load(open('Customer Service/customer_service_words.pkl', 'rb
 cust_classes = pickle.load(open('Customer Service/customer_service_classes.pkl', 'rb'))
 
 # example
-example_model = load_model('Inti/example_chatbot_model.h5')
-example_intents = json.loads(open('Inti/example_intents.json').read())
-example_words = pickle.load(open('Inti/example_words.pkl', 'rb'))
-example_classes = pickle.load(open('Inti/example_classes.pkl', 'rb'))
+example_model = load_model('Inti/inti_chatbot_model.h5')
+example_intents = json.loads(open('Inti/inti_intents.json').read())
+example_words = pickle.load(open('Inti/inti_words.pkl', 'rb'))
+example_classes = pickle.load(open('Inti/inti_classes.pkl', 'rb'))
 
 # inti
 model = example_model
@@ -301,8 +301,6 @@ def main():
     previousResp = startQues
     ChatLog.config(state=DISABLED)
     ChatLog.yview(END)
-
-
 
 if __name__ == "__main__":
     main()
