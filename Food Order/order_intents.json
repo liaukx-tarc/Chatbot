@@ -76,7 +76,7 @@
          "responses": ["Hi, I am food menu chatbot. What can I help you?"]
         },
         {"tag": "customer service",
-         "patterns": ["may I have customer service?", "may I ask?", "I have question", "customer service", "3", "three", "tiga"],
+         "patterns": ["may I have customer service?", "may I ask?", "I have question", "customer service","I want feedback", "3", "three", "tiga"],
          "responses": ["Hi, I am customer service chatbot. What can I help you?"]
         },
         {"tag": "payment",
