@@ -4,7 +4,7 @@
          "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"]
         },
         {"tag": "confirm",
-         "patterns": ["yes", "please order", "ya", "ok", "okay"],
+         "patterns": ["yes", "please order", "ya", "ok", "okay", "order"],
          "responses": ["I already place the order", "Your food has been order"]
         },
         {"tag": "cancel",

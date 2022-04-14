@@ -135,7 +135,7 @@ def getResponse(predict_result, intents_json):
                     isConfirm = False
                     break
         else:
-            result = "Bot: Please answer my question first. Thanks\n\n" + "[" + time.ctime(time.time()) + "] Bot: " + previousResp + "\n\n"
+            result = "Bot: Please answer my question first. Thanks\n\n" + "[" + datetime.now().strftime('%m/%d/%Y %H:%M:%S') + "] Bot: " + previousResp + "\n\n"
 
     elif isChooseFunc:
         if tag == "1" or tag == "2" or tag == "3":
@@ -169,7 +169,7 @@ def getResponse(predict_result, intents_json):
                     isChooseFunc = False
                     break
         else:
-            result = "Please select an option to proceed.\n\n" + "[" + time.ctime(time.time()) + "] Bot: " + previousResp
+            result = "Please select an option to proceed.\n\n" + "[" + datetime.now().strftime('%m/%d/%Y %H:%M:%S') + "] Bot: " + previousResp
 
     else:
         for i in list_of_intents:
