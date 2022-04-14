@@ -137,7 +137,7 @@ sgd = optimizer
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 # give the data to model and start training, repeat 200 epochs
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1, validation_data=(train_x,train_y))
+hist = model.fit(np.array(train_x), np.array(train_y), epochs=250, batch_size=5, verbose=1, validation_data=(train_x,train_y))
 
 # save the model
 model.save('customer_service_chatbot_model.h5', hist)

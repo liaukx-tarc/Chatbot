@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 
 import nltk
 from nltk.stem import WordNetLemmatizer
@@ -235,72 +236,76 @@ def chatbot_response(text):
 
 
 # Creating GUI with tkinter
-import tkinter
+import tkinter as tk
 from tkinter import *
 
 
-def send():
+def send(self = None):
     global  startTime
     global  endTime
 
     startTime = time.time()
-    msg = EntryBox.get("1.0", 'end-1c').strip()
-    EntryBox.delete("0.0", END)
+    msg = entryBox.get("1.0", 'end-1c').strip()
+    entryBox.delete("0.0", END)
     if msg != '':
-        ChatLog.config(state=NORMAL)
-        ChatLog.insert(END, "[" + time.ctime(time.time()) + "] You: " + msg + '\n\n')
-        ChatLog.config(foreground="#442265", font=("Verdana", 12))
+        chatLog.config(state=NORMAL)
+        chatLog.insert(END, "[" + datetime.now().strftime('%m/%d/%Y %H:%M:%S') + "] You: " + msg + '\n\n')
+        chatLog.config(foreground="#000000", font=("Verdana", 12))
         res = chatbot_response(msg)
         endTime = time.time()
-        ChatLog.insert(END, "[" + time.ctime(time.time()) + "] Bot: " + res + '\n\n')
-        ChatLog.config(state=DISABLED)
-        ChatLog.yview(END)
+        chatLog.insert(END, "[" + datetime.now().strftime('%m/%d/%Y %H:%M:%S') + "] Bot: " + res + '\n\n')
+        chatLog.config(state=DISABLED)
+        chatLog.yview(END)
         print((endTime - startTime) * 1000, "ms\n")
         if isQuit:
             time.sleep(3)
             quit()
+    return 'break'
 
 
 base = Tk()
-base.title("Hello")
+base.title("Uncle Kai Xian Restaurant")
 base.geometry("800x500")
 base.resizable(width=FALSE, height=FALSE)
+icon = PhotoImage(file = "icon.png")
+base.iconphoto(False,icon)
 
 # Create Chat window
-ChatLog = Text(base, bd=0, bg="white", height="8", width="50", font="Arial", )
-ChatLog.config(state=DISABLED)
+chatLog = Text(base, bd=0, bg="white", height="8", width="50", font="Arial")
+chatLog.config(state=DISABLED)
 
 # Bind scrollbar to Chat window
-scrollbar = Scrollbar(base, command=ChatLog.yview, cursor="heart")
-ChatLog['yscrollcommand'] = scrollbar.set
+scrollbar = Scrollbar(base, command=chatLog.yview)
+chatLog['yscrollcommand'] = scrollbar.set
 
 # Create Button to send message
-SendButton = Button(base, font=("Verdana", 12, 'bold'), text="Send", width="12", height=5,
-                    bd=0, bg="#32de97", activebackground="#3c9d9b", fg='#ffffff',
-                    command=send)
+sendButton = Button(base, font=("Verdana", 14, 'bold'), text="SEND", width="8", height="5",
+                    bd=0, bg="#1FD1DE", activebackground="#3C9D9B", fg='#FFFFFF', justify = "center",
+                    command = send)
+
 
 # Create the box to enter message
-EntryBox = Text(base, bd=0, bg="white", width="29", height="5", font="Arial")
-
-# EntryBox.bind("<Return>", send)
+entryBox = Text(base, bd=0, bg="white", width="29", height="5", font="Arial")
+entryBox.bind("<Return>", send)
+entryBox.focus_set()
 
 # Place all components on the screen
 scrollbar.place(x=776, y=6, height=386)
-ChatLog.place(x=6, y=6, height=386, width=770)
-EntryBox.place(x=128, y=401, height=90, width=665)
-SendButton.place(x=6, y=401, height=90)
+chatLog.place(x=6, y=6, height=386, width=770)
+entryBox.place(x=6, y=401, height=90, width=665)
+sendButton.place(x=736, y=446, anchor=tk.CENTER, height=90)
 
 def main():
     global isChooseFunc
     global previousResp
     isChooseFunc = True
-    ChatLog.config(state=NORMAL)
-    ChatLog.config(foreground="#442265", font=("Verdana", 12))
-    startQues = "[" + time.ctime(time.time()) + "] Bot: Please Choose the Function you want\n\n" + "\t\t\t\t 1. Food Menu\n\n" + "\t\t\t\t 2. Food Order\n\n" + "\t\t\t\t 3. Customer Service\n\n"
-    ChatLog.insert(END, startQues)
+    chatLog.config(state=NORMAL)
+    chatLog.config(foreground="#000000", font=("Verdana", 12))
+    startQues = "[" + datetime.now().strftime('%m/%d/%Y %H:%M:%S') + "] Bot: Please Choose the Function you want\n\n" + "\t\t\t\t 1. Food Menu\n\n" + "\t\t\t\t 2. Food Order\n\n" + "\t\t\t\t 3. Customer Service\n\n"
+    chatLog.insert(END, startQues)
     previousResp = startQues
-    ChatLog.config(state=DISABLED)
-    ChatLog.yview(END)
+    chatLog.config(state=DISABLED)
+    chatLog.yview(END)
 
 if __name__ == "__main__":
     main()
