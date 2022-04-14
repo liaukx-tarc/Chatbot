@@ -28,7 +28,7 @@ testData = []
 ignore_words = []
 
 # open the intents file
-data_file = open('example_intents.json').read()
+data_file = open('inti_intents.json').read()
 intents = json.loads(data_file)
 
 # for loop each pattern sentences in the intents file
@@ -63,8 +63,8 @@ print(len(classes), "classes", classes)
 print(len(words), "unique lemmatized words", words)
 
 # save the words and classes data to pkl file
-pickle.dump(words, open('example_words.pkl', 'wb'))
-pickle.dump(classes, open('example_classes.pkl', 'wb'))
+pickle.dump(words, open('inti_words.pkl', 'wb'))
+pickle.dump(classes, open('inti_classes.pkl', 'wb'))
 
 # -----------------------------------------------------------------------------------------------------
 
@@ -140,7 +140,7 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=250, batch_size=5, verbose=1, validation_data=(train_x,train_y))
 
 # save the model
-model.save('example_chatbot_model.h5', hist)
+model.save('inti_chatbot_model.h5', hist)
 
 # plot the graph
 plt.plot(hist.history['loss'])
@@ -152,6 +152,5 @@ plt.ylabel('Loss & Accuracy')
 plt.xlabel('Epochs')
 plt.legend(['loss', 'val loss', 'accuracy', 'val_accuracy'])
 plt.show()
-
 
 print("model created")
